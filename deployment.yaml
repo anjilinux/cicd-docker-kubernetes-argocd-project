@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+ name: pyapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pyapp
+  template:
+     metadata: 
+       labels:
+         app: pyapp
+     spec: 
+      - containers: 
+          - name: pythonflask
+            image: anjireddy/333
+            ports:
+            - containerPort: 5000
